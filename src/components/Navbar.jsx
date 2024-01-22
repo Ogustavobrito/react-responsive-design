@@ -6,7 +6,7 @@ import { BsFillMoonFill } from 'react-icons/bs';
 import logo from '../assets/logo.png';
 
 const Navbar = ({ changeTheme, currentTheme }) => {
-  const [state, setState] = useState(false);
+  const [navState, setNavState] = useState(false);
 
   return (
     <nav>
@@ -14,18 +14,24 @@ const Navbar = ({ changeTheme, currentTheme }) => {
         <div className="brand">
           <img src={logo} alt="logo" />
         </div>
-      </div>
-      <div className="toggle-container">
-        <div className="toggle"></div>
-        <div className="mode">
-          {currentTheme === 'dark' ? (
-            <ImSun className="light" />
-          ) : (
-            <BsFillMoonFill className="dark" />
-          )}
+        <div className="toggle-container">
+          <div className="toggle">
+            {navState ? (
+              <MdClose onClick={() => setNavState(false)} />
+            ) : (
+              <GiHamburgerMenu onClick={() => setNavState(true)} />
+            )}
+          </div>
+          <div className="mode" onClick={changeTheme}>
+            {currentTheme === 'dark' ? (
+              <ImSun className="light" />
+            ) : (
+              <BsFillMoonFill className="dark" />
+            )}
+          </div>
         </div>
       </div>
-      <div className="links-container">
+      <div className={`links-container ${navState ? 'nav-visible' : ''}`}>
         <ul className="links">
           <li>
             <a href="#">Features</a>

@@ -28,10 +28,7 @@
       padding: 1rem 3rem;
       border-radius: 2rem;
       border: solid 3px transparent;
-      background-image: linear-gradient(
-          rgba(255, 255, 255, 0),
-          rgba(255, 255, 255, 0)
-        ),
+      background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
         linear-gradient(101deg, var(--pink), var(--orange));
       background-origin: border-box;
       background-clip: content-box, border-box;
@@ -64,6 +61,39 @@
         background-color: var(--orange);
         bottom: 40%;
         left: 40%;
+      }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    padding: 1rem;
+    position: relative;
+    overflow-x: hidden;
+    margin-top: 1rem;
+    .container {
+      font-size: 16px;
+      grid-template-columns: 0.7fr;
+      .image-container {
+        position: absolute;
+        right: -10%;
+        top: 30%;
+        .image {
+          img {
+            height: 10rem;
+          }
+        }
+        .ellipse-container {
+          .ellipse {
+            height: 6rem;
+            width: 6rem;
+            filter: blur(30px);
+          }
+          .pink {
+            right: 10%;
+          }
+          .orange {
+            left: -5%;
+          }
+        }
       }
     }
   }
